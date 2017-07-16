@@ -21,7 +21,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         self.tableView.separatorColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         
-        self.tableView.addPullRefresh { [weak self] in
+        let pullOptions = PullToRefreshOption(arrowImage: UIImage(named: "custompulltorefresharrow"))
+        self.tableView.addPullRefresh(options: pullOptions) { [weak self] in
             // some code
             sleep(1)
             self?.texts.shuffle()
@@ -29,9 +30,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self?.tableView.stopPullRefreshEver()
         }
         
-        var options = PullToRefreshOption()
-        options.indicatorColor = .blue
-        self.tableView.addPushRefresh(options: options) { [weak self] in
+        let pushOptions = PullToRefreshOption(indicatorColor: .blue)
+        self.tableView.addPushRefresh(options: pushOptions) { [weak self] in
             // some code
             sleep(1)
             self?.texts.shuffle()
