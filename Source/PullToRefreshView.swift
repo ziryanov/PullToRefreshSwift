@@ -7,6 +7,8 @@
 //
 import UIKit
 
+private var kvoContext = "PullToRefreshKVOContext"
+
 open class PullToRefreshView: UIView {
     enum PullToRefreshState {
         case pulling
@@ -19,14 +21,12 @@ open class PullToRefreshView: UIView {
     // MARK: Variables
     let contentOffsetKeyPath = "contentOffset"
     let contentSizeKeyPath = "contentSize"
-    var kvoContext = "PullToRefreshKVOContext"
-    
     fileprivate var options: PullToRefreshOption
     fileprivate var backgroundView: UIView
     fileprivate var arrow: UIImageView
     fileprivate var indicator: UIActivityIndicatorView
     fileprivate var scrollViewInsets: UIEdgeInsets = UIEdgeInsets.zero
-    fileprivate var refreshCompletion: ((Void) -> Void)?
+    fileprivate var refreshCompletion: (() -> Void)?
     fileprivate var pull: Bool = true
     
     fileprivate var positionY:CGFloat = 0 {
@@ -78,13 +78,13 @@ open class PullToRefreshView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(options: PullToRefreshOption, frame: CGRect, refreshCompletion :((Void) -> Void)?, down:Bool=true) {
+    public init(options: PullToRefreshOption, frame: CGRect, refreshCompletion :(() -> Void)?, down:Bool=true) {
         self.options = options
         self.refreshCompletion = refreshCompletion
 
         self.backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
         self.backgroundView.backgroundColor = self.options.backgroundColor
-        self.backgroundView.autoresizingMask = UIViewAutoresizing.flexibleWidth
+        self.backgroundView.autoresizingMask = UIView.AutoresizingMask.flexibleWidth
         
         self.arrow = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         self.arrow.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
@@ -92,7 +92,7 @@ open class PullToRefreshView: UIView {
         self.arrow.image = UIImage(named: PullToRefreshConst.imageName, in: Bundle(for: type(of: self)), compatibleWith: nil)
         
         
-        self.indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        self.indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
         self.indicator.bounds = self.arrow.bounds
         self.indicator.autoresizingMask = self.arrow.autoresizingMask
         self.indicator.hidesWhenStopped = true
@@ -262,7 +262,7 @@ open class PullToRefreshView: UIView {
     fileprivate func arrowRotation() {
         UIView.animate(withDuration: 0.2, delay: 0, options:[], animations: {
             // -0.0000001 for the rotation direction control
-            self.arrow.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI-0.0000001))
+            self.arrow.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi - 0.0000001))
         }, completion:nil)
     }
     
