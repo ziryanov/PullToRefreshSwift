@@ -11,21 +11,23 @@ struct PullToRefreshConst {
     static let pushTag = 811
     static let alpha = true
     static let height: CGFloat = 80
-    static let imageName: String = "pulltorefresharrow.png"
+    static let defaultImageName: String = "pulltorefresharrow.png"
     static let animationDuration: Double = 0.5
     static let fixedTop = true // PullToRefreshView fixed Top
 }
 
-public struct PullToRefreshOption {
-    public var backgroundColor: UIColor
-    public var indicatorColor: UIColor
-    public var autoStopTime: Double // 0 is not auto stop
-    public var fixedSectionHeader: Bool // Update the content inset for fixed section headers
+public class PullToRefreshOption: NSObject {
+    private(set) var backgroundColor: UIColor
+    private(set) var indicatorColor: UIColor
+    private(set) var autoStopTime: Double // 0 is not auto stop
+    private(set) var fixedSectionHeader: Bool // Update the content inset for fixed section headers
+    private(set) var arrowImage: UIImage?
     
-    public init(backgroundColor: UIColor = .clear, indicatorColor: UIColor = .gray, autoStopTime: Double = 0, fixedSectionHeader: Bool = false) {
+    public init(backgroundColor: UIColor = .clear, indicatorColor: UIColor = .gray, autoStopTime: Double = 0, fixedSectionHeader: Bool = false, arrowImage: UIImage? = nil) {
         self.backgroundColor = backgroundColor
         self.indicatorColor = indicatorColor
         self.autoStopTime = autoStopTime
         self.fixedSectionHeader = fixedSectionHeader
+        self.arrowImage = arrowImage
     }
 }

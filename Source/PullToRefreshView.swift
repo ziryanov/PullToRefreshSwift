@@ -89,8 +89,11 @@ open class PullToRefreshView: UIView {
         self.arrow = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         self.arrow.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
         
-        self.arrow.image = UIImage(named: PullToRefreshConst.imageName, in: Bundle(for: type(of: self)), compatibleWith: nil)
-        
+        if let arrowImage = options.arrowImage {
+            self.arrow.image = arrowImage
+        } else {
+            self.arrow.image = UIImage(named: PullToRefreshConst.defaultImageName, in: Bundle(for: type(of: self)), compatibleWith: nil)
+        }
         
         self.indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         self.indicator.bounds = self.arrow.bounds

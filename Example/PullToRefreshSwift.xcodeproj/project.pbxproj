@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		590300841F1BE23A00A0894A /* custompulltorefresharrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 590300831F1BE23A00A0894A /* custompulltorefresharrow.png */; };
 		8C37CA2B1A3E815D00B3EFD4 /* pulltorefresharrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C37CA271A3E815D00B3EFD4 /* pulltorefresharrow.png */; };
 		8C37CA2C1A3E815D00B3EFD4 /* PullToRefreshOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37CA281A3E815D00B3EFD4 /* PullToRefreshOption.swift */; };
 		8C37CA2D1A3E815D00B3EFD4 /* PullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C37CA291A3E815D00B3EFD4 /* PullToRefreshView.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		590300831F1BE23A00A0894A /* custompulltorefresharrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custompulltorefresharrow.png; sourceTree = "<group>"; };
 		8C37CA271A3E815D00B3EFD4 /* pulltorefresharrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pulltorefresharrow.png; path = ../../Source/pulltorefresharrow.png; sourceTree = "<group>"; };
 		8C37CA281A3E815D00B3EFD4 /* PullToRefreshOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshOption.swift; sourceTree = "<group>"; };
 		8C37CA291A3E815D00B3EFD4 /* PullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				C53BEC491A357BCA008A4302 /* Images.xcassets */,
 				C53BEC4B1A357BCA008A4302 /* LaunchScreen.xib */,
 				C53BEC411A357BCA008A4302 /* PullToRefreshSwift.xcdatamodeld */,
+				590300831F1BE23A00A0894A /* custompulltorefresharrow.png */,
 				C53BEC3D1A357BCA008A4302 /* Supporting Files */,
 			);
 			path = PullToRefreshSwift;
@@ -233,6 +236,7 @@
 			files = (
 				C53BEC481A357BCA008A4302 /* Main.storyboard in Resources */,
 				C53BEC4D1A357BCA008A4302 /* LaunchScreen.xib in Resources */,
+				590300841F1BE23A00A0894A /* custompulltorefresharrow.png in Resources */,
 				C53BEC4A1A357BCA008A4302 /* Images.xcassets in Resources */,
 				8C37CA2B1A3E815D00B3EFD4 /* pulltorefresharrow.png in Resources */,
 			);
